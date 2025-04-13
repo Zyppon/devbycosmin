@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block extra_css %}
+{%load static%}
+<style>
+    svg {
+      display: block;
+      font: 10.5em 'Montserrat', sans-serif;
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+      margin: 0 auto;
+    }
+    .text-copy {
+      fill: none;
+      stroke: white;
+      stroke-dasharray: 6% 29%;
+      stroke-width: 5px;
+      stroke-dashoffset: 0%;
+      animation: stroke-offset 5.5s infinite linear;
+    }
+    .text-copy:nth-child(1){ stroke: #d3d6db; animation-delay: -1s; }
+    .text-copy:nth-child(2){ stroke: #5fc9f3; animation-delay: -2s; }
+    .text-copy:nth-child(3){ stroke: #46a8ce; animation-delay: -3s; }
+    .text-copy:nth-child(4){ stroke: #199acd; animation-delay: -4s; }
+    .text-copy:nth-child(5){ stroke: #ffffff; animation-delay: -5s; }
+    @keyframes stroke-offset {100% { stroke-dashoffset: -35%; }
+    }
+    @keyframes RevealText { from { width: 0; } 
+    } 
+    @keyframes Blink {0% { opacity: 0 }100% { opacity: 1 }
+    }
+    .about-me-section {margin-top: 10vh;}
+    .about-card {background-color: #2c2c2c;border-radius: 10px;padding: 30px;box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;animation: fadeInUp 1s ease-out forwards;}
+    .card-title {font-size: 24px;font-weight: 700;color: #fff;}
+    .card-text {color: #d3d3d3;font-size: 18px;
+    }
+    @keyframes fadeInUp {0% {transform: translateY(50px);opacity: 0;}100% {transform: translateY(0);opacity: 1;}
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+  <svg viewBox="0 0 960 300">
+    <symbol id="s-text">
+      <text text-anchor="middle" x="50%" y="80%">Hello!</text>
+    </symbol>
+    <g class="g-ants">
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+    </g>
+  </svg>
+</div>
+<hr>
+<div id="about-me-redirect"class="about-me-section">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-8">
+              <div class="card about-card">
+                  <div class="card-body">
+                      <h3 class="card-title text-center">About Me</h3>
+                      <p class="card-text text-center">I am a passionate developer who loves creating web experiences. I specialize in front-end development with JavaScript, HTML, CSS, and I am always learning new technologies to improve my skills.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<h1>ahaha</h1>
+{% endblock %}
