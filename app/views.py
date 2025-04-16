@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from forms import *
+from app.forms import *
 from django.core.mail import EmailMultiAlternatives , EmailMessage
 from django.conf import settings 
 
@@ -7,8 +7,7 @@ from django.conf import settings
 def index(request):
     return render(request , 'index.html')
 
-def contact(request):
-    return render(request , 'contact.html')
+
 
 def contact(request):
     if request.method == 'POST':
@@ -17,8 +16,9 @@ def contact(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            category = form.cleaned_data['category']
-            subject = f"Contact - {category} from {name}"
+           # category = form.cleaned_data['category']
+           # subject = f"Contact - {category} from {name}"
+            subject = f"Contact - DevByCosmin from {name}"
             EmailMessage(
                subject,
                message,
@@ -27,7 +27,10 @@ def contact(request):
                [],
                reply_to=[email] 
            ).send()
-            return redirect('index')
+            return redirect('contact')
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
+
+def support_developer(request):
+    return render(request , 'support.html')

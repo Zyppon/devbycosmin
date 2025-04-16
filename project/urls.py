@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('' ,index  , name='index'),
     path('contact/' ,contact  , name='contact'),
+     path('donate/' ,support_developer  , name='support_developer'),
 ]
