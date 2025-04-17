@@ -3,6 +3,8 @@
 {% block extra_css %}
 {%load static%}
 <style>
+
+
   svg {display: block;font: 10.5em 'Montserrat', sans-serif;width: 100%;max-width: 960px;height: auto;margin: 0 auto;}
     .text-copy {fill: none;stroke: white;stroke-dasharray: 6% 29%;stroke-width: 5px;stroke-dashoffset: 0%;animation: stroke-offset 5.5s infinite linear;}
     .text-copy:nth-child(1){ stroke: #d3d6db; animation-delay: -1s; }
@@ -43,14 +45,18 @@
   </svg>
 </div>
 <hr>
+
 <div id="about-me-redirect"class="about-me-section">
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-8">
-              <div class="card about-card">
+              <div class="card about-card" style="border-style: solid; border-color: #ffffff;">
                   <div class="card-body">
                       <h3 class="card-title text-center">About Me</h3>
-                      <p class="card-text text-center">I am a passionate developer who loves creating web experiences. I specialize in front-end development with JavaScript, HTML, CSS, and I am always learning new technologies to improve my skills.</p>
+                      <p class="card-text text-center">
+                        Dedicated developer and craftsman with a strong passion creating engaging and user-friendly web experiences. 
+                        I specialize in HTML, CSS, and JavaScript, and back-end technologies exploring and elevate my skills to bring creative ideas to life.
+                      </p>
                   </div>
               </div>
           </div>
@@ -58,5 +64,4 @@
   </div>
 </div>
 </div>
-<h1>ahaha</h1>
 {% endblock %}

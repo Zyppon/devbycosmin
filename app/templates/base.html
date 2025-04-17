@@ -13,6 +13,23 @@
         h1, h2, h3 {color: #ffffff; }
         @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
+        .navbar-nav .nav-link {
+            font-size: 1.3rem;
+            margin-left: 12px;
+            margin-right: 12px;
+            
+        
+        }
+
+        .nav-link:hover{
+            color: #5fc9f3; 
+            font-weight: bold;
+        }
+
+        a.nav-link{
+            color: #ffffff;
+        }
+
         *{margin: 0px;padding: 0px;}
         .navbar {z-index: 1000;position: relative;}
         .navbar-toggler {border: none;background: transparent; padding: 10px; transition: all 0.3s ease; }
@@ -35,7 +52,7 @@
         .navbar-nav {text-align: center; }
         .navbar-nav .nav-item {padding: 10px 0; }
         .navbar-nav .nav-link {color: #ffffff;  font-size: 1.2rem;  transition: color 0.3s ease; }
-        .navbar-nav .nav-link:hover {color: #50cdff;  }
+        
         }
         .context {width: 100%;position: absolute;top:10vh; }
         .context h1{text-align: center;color: #fff;font-size: 50px;position: relative; z-index: 1; }
@@ -69,7 +86,7 @@
 </head>
 <body>
   
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
         <div class="container">
             <a class="navbar-brand" href="{%url 'index'%}">DevByCosmin</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
