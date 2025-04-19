@@ -1,10 +1,12 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include
 from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('' ,index  , name='index'),
     path('contact/' ,contact  , name='contact'),
-     path('donate/' ,support_developer  , name='support_developer'),
+    path('financial-support/' ,support_developer  , name='support_developer'),
+    path('captcha/', include('captcha.urls')),
+    path('blog/' ,BlogPosts , name='blog'),
 ]

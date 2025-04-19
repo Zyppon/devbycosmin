@@ -2,9 +2,41 @@
 {%block title%}{%endblock%}
 {%block extra_css%}
 <style>
+.context {min-height: 30vh;display: flex;flex-direction: column;align-items: center;padding: 2rem;text-align: center;}
+.title {font-size: 2.5rem;font-weight: bold;color: #fff;margin-bottom: 1rem;}
+.text {font-weight: bold;}
+.context p {font-size: 1.2rem;color: #ccc;margin-bottom: 2rem;}
+.link-wrapper {width: 100%;max-width: 800px;text-align: left;margin-top: 1rem;}
+.list-group {list-style: none;padding: 0;display: flex;flex-direction: column;gap: 1rem;}
+.list-group .link {color: #0099ff;text-decoration: underline;font-weight: bold;transition: color 0.3s ease;}
+.list-group .link:hover {color: #0a76bf;}
 
+@media (max-width: 768px) {
+    .title {font-size: 2rem;}
+    .context p {font-size: 1rem;}
+    .link-wrapper {text-align: center;}
+    .list-group {align-items: center;}
+}
 </style>
 {%endblock%}
 {%block content%}
-<h1>Support</h1>
+<div class="context">
+    <h1 class="title">Financial Support</h1>
+    <p>I'm a passionate web developer on a mission to grow, learn, and build meaningful digital experiences.<br>
+        If you enjoy what I create or believe in the potential of what I’m building, your support means the world to me.<br>
+        If you like what I build, feel free to buy me a coffee ☕.</p>
+
+    <div class="link-wrapper">
+        <ul class="list-group">
+          <li><a class="link" href="#">Buy Me a coffee</a></li>
+          <li><a class="link" href="#">Support via Ko-fi</a></li>
+          <li><a class="link" href="#">Support via Boosty</a></li>
+          <li><a class="link" href="https://paypal.me/cosminpaliuc1?country.x=MD&locale.x=en_US">Direct via PayPal</a></li>
+          <li><a class="link" href="https://revolut.me/cosminzzko">Direct via Revolut</a></li>
+        </ul>
+      </div>
+    <h4 class="text">Thank You For Your Support!❤️</h4>
+    <p>🚀Whether it's a coffee, a kind message, or a small donation – every gesture keeps this dream going.🥹</p>
+
+</div>
 {%endblock%}

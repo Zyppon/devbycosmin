@@ -1,8 +1,9 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect ,  get_object_or_404
 from app.forms import *
 from django.core.mail import EmailMultiAlternatives , EmailMessage
 from django.conf import settings 
-
+from .models import *
+from django.db.models import Q
 
 def index(request):
     return render(request , 'index.html')
@@ -34,3 +35,14 @@ def contact(request):
 
 def support_developer(request):
     return render(request , 'support.html')
+
+
+def BlogPosts(request):
+    search_post = request.GET.get('search')
+
+    if search_post:
+      posts = BlogPost.objects.filter(Q(title__icontains=search_post))
+    else:
+      posts = BlogPost.objects.all()
+
+    return render(request , 'blog/blog.html' , {'posts':posts , 'search_query': search_post})

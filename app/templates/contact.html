@@ -47,236 +47,59 @@
   80%, 100% { transform: rotateX(0deg) rotateZ(-135deg) translateZ(-2px) translateY(-5000px); }
 }
 
-.super-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.contact-wrapper {
-  --gradient-angle: 0deg;
-  border-radius: 20px;
-  border: 1px solid var(--primary-blue);
-  position: relative;
-  background-color: var(--secondary-dark);
-  padding-top: 50px;
-  padding-bottom: 50px;
-  box-shadow: 0 0 20px var(--secondary-dark);
-  width: 60vw;
-  transition: 0.15s all;
-  transform-style: preserve-3d;
-  transform: perspective(5000px) rotateX(var(--rotateX)) rotateY(var(--rotateY));
-}
-
-.contact-wrapper.sent {
-  animation: successAnime 4s linear forwards;
-}
-
-.contact-wrapper.sent .hidden,
-.contact-wrapper.sent .hidden:after {
-  animation: show 4s linear forwards;
-}
-
-.contact-wrapper .mail {
-  background: linear-gradient(to bottom, var(--primary-light-blue), var(--primary-blue));
-  position: absolute;
-  inset: 0;
-  font-size: 30px;
-  color: black;
-  border-radius: inherit;
-  transform: rotateX(0deg) rotateZ(0deg) translateZ(-5px) translateY(0);
-}
-
-.contact-wrapper .mail:before,
-.contact-wrapper .mail:after {
-  content: '';
-  position: absolute;
-  border-top: 20px solid var(--primary-blue);
-  border-radius: 10px;
-  width: 57%;
-  top: 5%;
-}
-
-.contact-wrapper .mail:before {
-  left: 5%;
-  transform-origin: top left;
-  transform: rotate(35deg);
-}
-
-.contact-wrapper .mail:after {
-  right: 5%;
-  transform-origin: top right;
-  transform: rotate(-35deg);
-}
-
-.contact-wrapper.sent .mail {
-  animation: mailOut 4s linear;
-}
-
-.contact-wrapper .hidden {
-  position: absolute;
-  right: 0;
-  font-size: 30px;
-  color: black;
-  font-weight: bolder;
-  white-space: nowrap;
-  transform: rotateX(270deg) rotateY(90deg) translateZ(15rem) translateY(0) translateX(-7.5rem);
-  opacity: 0;
-}
-
-.contact-wrapper .hidden:after {
-  content: 'Sent ✅';
-  position: absolute;
-  left: 50%;
-  top: -150%;
-  font-size: 30px;
-  color: white;
-  opacity: 0;
-  transform: translateX(-50%);
-}
-
+.super-container {height: 100vh;display: flex;justify-content: center;align-items: center;overflow: hidden;}
+.contact-wrapper {--gradient-angle: 0deg; border-radius: 20px;border: 1px solid var(--primary-blue);position: relative;background-color: var(--secondary-dark);
+  padding-top: 50px;padding-bottom: 50px;box-shadow: 0 0 20px var(--secondary-dark);width: 60vw;transition: 0.15s all;
+  transform-style: preserve-3d;transform: perspective(5000px) rotateX(var(--rotateX)) rotateY(var(--rotateY));}
+.contact-wrapper.sent {animation: successAnime 4s linear forwards;}
+.contact-wrapper.sent .hidden,.contact-wrapper.sent .hidden:after {animation: show 4s linear forwards;}
+.contact-wrapper .mail { background: linear-gradient(to bottom, var(--primary-light-blue), var(--primary-blue));position: absolute;inset: 0;
+  font-size: 30px;color: black;border-radius: inherit;transform: rotateX(0deg) rotateZ(0deg) translateZ(-5px) translateY(0);}
+.contact-wrapper .mail:before,.contact-wrapper .mail:after {content: '';position: absolute;border-top: 20px solid var(--primary-blue);border-radius: 10px;
+  width: 57%;top: 5%;}
+.contact-wrapper .mail:before {left: 5%;transform-origin: top left;transform: rotate(35deg);}
+.contact-wrapper .mail:after {right: 5%;transform-origin: top right;transform: rotate(-35deg);}
+.contact-wrapper.sent .mail {animation: mailOut 4s linear;}
+.contact-wrapper .hidden {position: absolute;right: 0;font-size: 30px;color: black;font-weight: bolder;white-space: nowrap;
+  transform: rotateX(270deg) rotateY(90deg) translateZ(15rem) translateY(0) translateX(-7.5rem);opacity: 0;}
+.contact-wrapper .hidden:after {content: 'Sent ✅';position: absolute;left: 50%;top: -150%;font-size: 30px;color: white;opacity: 0;transform: translateX(-50%);}
 .contact-wrapper:before,
-.contact-wrapper:after {
-  content: '';
-  border-radius: inherit;
-  position: absolute;
-  inset: -0.7rem;
-  background: conic-gradient(from var(--gradient-angle), #007ffe, #016e92, #43d3ff, #2bc6ff, #2bc6ff, #0099c8 , #007ffe);
-  animation: rotate 3s linear infinite;
-}
-
+.contact-wrapper:after {content: '';border-radius: inherit;position: absolute;inset: -0.7rem;
+background: conic-gradient(from var(--gradient-angle), #007ffe, #016e92, #43d3ff, #2bc6ff, #2bc6ff, #0099c8 , #007ffe);
+animation: rotate 3s linear infinite;}
 .contact-wrapper:after {transform: rotateX(0deg) rotateZ(0deg) translateZ(-50px) translateY(0);}
 .contact-wrapper:before {transform: translateZ(-49px);filter: blur(15px);}
-
-.top-heading h1 {
-  font-weight: bold;  /* îngroșat */
-  font-size: 1.5rem;
-  text-align: center;
-  color: white;
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.button-container button {
-  min-width: max-content;
-  cursor: pointer;
-  font-family: inherit;  /* scoatem fontul personalizat de pe butoane */
-}
-
-.button-container button:disabled {
-  cursor: not-allowed;
-}
-
-.contact-form {
-  padding: 0 5rem;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-form label {
-  font-size: 1rem;  /* mai mare */
-  font-weight: bold;  /* bold */
-  margin-bottom: 10px;
-  color: white;  /* alb */
-}
-
+.top-heading h1 {font-weight: bold;  /* îngroșat */font-size: 1.5rem;text-align: center;color: white;}
+.button-container {display: flex;justify-content: space-between;}
+.button-container button {min-width: max-content;cursor: pointer;font-family: inherit;  /* scoatem fontul personalizat de pe butoane */}
+.button-container button:disabled {cursor: not-allowed;}
+.contact-form {padding: 0 5rem;display: flex;flex-direction: column;width: 100%;position: relative;overflow: hidden;}
+.contact-form label {font-size: 1rem;  /* big */font-weight: bold;  /* bold */margin-bottom: 10px;color: white;}
 .contact-form input,
-.contact-form textarea {
-  border-radius: 5px;
-  color: white;
-  width: 100%;
-  outline: none;
-  border: 1px solid var(--primary-blue);
-  background: transparent;
-  font-size: 15px;
-  font-weight: 100;
-  padding: 10px;
-}
-
-.contact-form textarea {
-  resize: none;
-  min-height: 90px;
-}
-
-.contact-form button {
-  border-radius: 5px;
-  font-weight: 900;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding: 1em;
-  width: 150px;
-  color: white;
-  background: var(--primary-blue);
-  border: none;
-}
-
-.contact-form button:hover {
-  opacity: 0.7;
-}
-
-.contact-form button:active {
-  transform: scale(0.95);
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem 0 0 0;
-}
-
-.field:first-child {
-  padding-right: 1rem;
-}
-
-.block {
-  display: flex;
-  width: 100%;
-}
-
-.link {
-  position: absolute;
-  z-index: 10000;
-  bottom: 10px;
-  left: 50%;
-  translate: -50% 0;
-  color: white;
-}
+.contact-form textarea {border-radius: 5px;color: white;width: 100%;outline: none;border: 1px solid var(--primary-blue);background: transparent;font-size: 15px;
+  font-weight: 100;padding: 10px;}
+.contact-form textarea {resize: none;min-height: 90px;}
+.contact-form button { border-radius: 5px;font-weight: 900;font-size: 0.8em;text-transform: uppercase;letter-spacing: 5px;margin-top: 1em;
+  margin-bottom: 1em;padding: 1em;width: 150px;color: white;background: var(--primary-blue);border: none;}
+.contact-form button:hover {opacity: 0.7;}
+.contact-form button:active {transform: scale(0.95);}
+.field {display: flex;flex-direction: column;margin: 0.5rem 0 0 0;}
+.field:first-child {padding-right: 1rem;}
+.block {display: flex;width: 100%;}
+.link {position: absolute;z-index: 10000;bottom: 10px;left: 50%;translate: -50% 0;color: white;}
 
 @media (max-width: 768px) {
-  .contact-wrapper {
-    width: 90vw;
-    padding: 2rem 1rem;
-  }
-  .contact-form {
-    padding: 0 1rem;
-  }
-  .block {
-    flex-direction: column;
-  }
-  .field:first-child {
-    padding-right: 0;
-  }
-  .button-container {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-  .button-container button {
-    width: 100%;
-  }
+  .contact-wrapper {width: 90vw;padding: 2rem 1rem;}
+  .contact-form {padding: 0 1rem;}
+  .block {flex-direction: column;}
+  .field:first-child {padding-right: 0;}
+  .button-container {flex-direction: column;gap: 1rem;align-items: center;}
+  .button-container button {width: 100%;}
+  .captcha-img {width: 50px;  height: auto;}
 }
 
+.captcha-img {width: 200px;  height: auto;margin-bottom: 20px;  /* Optional: Adds space below the CAPTCHA image */
+}
 </style>
 {% endblock %}
 
@@ -306,11 +129,20 @@
         <label>Your Message</label>
         <textarea name="message" required>{{ form.message.value|default:'' }}</textarea>
       </div>
+      <div class="field contact-captcha">
+  <label>Captcha Verification</label>
+  <div>
+    <img src="{{ form.captcha.image.url }}" class="captcha-img" /><br>
+
+    {{ form.captcha }}
+  </div>
+</div>
+
       <div class='button-container'>
         <button class='send' type="submit">send</button>
         <button type="reset">clear</button>
       </div>
-      <p>want to support me?</p>
+      <p class="fs-2">Do you want to support me?feel free to <a style="color: #5fc9f3;" href="{%url 'support_developer'%}">buy me a coffee</a>😀☕</p>
     </form>
   </div>
 </div>

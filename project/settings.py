@@ -27,8 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'captcha',
 ]
-
+CAPTCHA_IMAGE_SIZE = (200, 50)  # Width, Height in pixels
+CAPTCHA_FONT_SIZE = 40 
 #Backend Mail 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
