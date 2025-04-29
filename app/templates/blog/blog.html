@@ -27,23 +27,52 @@
       flex: 1;
       padding: 1.5rem;
     }
+
+    @media (max-width: 768px) {
+        .card-custom {
+            flex-direction: column !important; /* Schimbă direcția pe verticală */
+            height: auto; /* Permite cardului să se ajusteze pe verticală */
+        }
+
+        .card-img-left {
+            flex: 0 0 100%;  /* 100% din lățimea pentru imagine */
+            height: 200px;   /* Setează o înălțime fixă pentru imagine */
+        }
+
+        .card-body-custom {
+            padding: 1rem;   /* Micșorează padding-ul pentru ecranele mici */
+        }
+    }
+
+    /* Media Query pentru tablete sau ecrane medii */
+    @media (max-width: 992px) {
+        .card-custom {
+            flex-direction: column !important; /* Schimbă direcția pe verticală */
+        }
+
+        .card-img-left {
+            flex: 0 0 100%;  /* 100% din lățimea pentru imagine */
+            height: 250px;   /* Înălțime mai mare pentru imagine pe tablete */
+        }
+    }
 </style>
 {%endblock%}
 {%block content%}
-
+{% for post in posts %}
 <div class="container mt-5">
     <div class="card card-custom mb-4" style="background-color: #2c2c2c;">
- 
-      <img src="{%static 'images/avatar_cosmin.png'%}" class="card-img-left" alt="Card 1">
-   
+      {% if post.image %}
+      <img src="{%static 'images/avatar_cosmin.png'%}" class="card-img-left" alt="{{post.title}}">
+      {%endif%}
       <div class="card-body-custom">
-        <h5 class="card-title">Title Card 1</h5>
+        <h1 class="card-title"><a href="{% url 'blog_detail' post_id=post.id %}">{{ post.title }}</a></h1>
         <p class="card-text">Description lorem ispum lorem ispum lorem ispum lorem ispum</p>
       </div>
     </div>
   </div>
+  {%empty%}
   <div>
       <h1 class="title has-text-centered">No result for <h1/>
   </div>
-
+{%endfor%}
 {%endblock%}

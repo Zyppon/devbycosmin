@@ -6,7 +6,10 @@ from .models import *
 from django.db.models import Q
 
 def index(request):
-    return render(request , 'index.html')
+
+    posts = BlogPost.objects.all()
+    projects = ProjectPost.objects.all()
+    return render(request , 'index.html' ,  {'posts':posts  , 'projects':projects})
 
 
 
@@ -46,3 +49,8 @@ def BlogPosts(request):
       posts = BlogPost.objects.all()
 
     return render(request , 'blog/blog.html' , {'posts':posts , 'search_query': search_post})
+
+def blog_detail(request , post_id):
+    post = get_object_or_404(BlogPost , id=post_id)
+    return render(request , 'blog/blog_detail.html' , {'post':post})
+

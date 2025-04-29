@@ -3,9 +3,7 @@
 {% block extra_css %}
 {%load static%}
 <style>
-
-
-  svg {display: block;font: 10.5em 'Montserrat', sans-serif;width: 100%;max-width: 960px;height: auto;margin: 0 auto;}
+  svg {display: block;font: 10.5em 'Montserrat', sans-serif;width: 100%;max-width:  960px;height: auto;margin: 0 auto;}
     .text-copy {fill: none;stroke: white;stroke-dasharray: 6% 29%;stroke-width: 5px;stroke-dashoffset: 0%;animation: stroke-offset 5.5s infinite linear;}
     .text-copy:nth-child(1){ stroke: #d3d6db; animation-delay: -1s; }
     .text-copy:nth-child(2){ stroke: #5fc9f3; animation-delay: -2s; }
@@ -26,7 +24,7 @@
     }
     @keyframes fadeInUp {0% {transform: translateY(50px);opacity: 0;}100% {transform: translateY(0);opacity: 1;}
     }
-
+    
   .skill-box {
   background-color: #2c2c2c;
   border: 1px solid #444;
@@ -147,6 +145,33 @@
   </div>
 </div>
 
+<!---PROJECTS---->
+<section class="py-5  text-white">
+  <div class="container">
+    <h3 class="mb-5 text-center">Projects</h3>
+    <div class="row g-4">
+
+  {% for project in projects %} 
+      <div class="col-12 col-md-6">
+        <div class="card h-100 bg-secondary border-0 shadow-sm">
+          {% if project.image %}
+          <img src="{%static 'images/avatar_cosmin.png'%}" class="card-img-top" alt="{{ project.title }}" style="height: 250px; object-fit: cover;">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ project.title }}</h5>
+            <p class="card-text">{{ project.description|truncatewords:20 }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 text-end">
+            <a href="{%static 'images/avatar_cosmin.png'%}" class="btn btn-outline-light btn-sm" target="_blank">Vezi Proiectul</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-center">Nu există proiecte disponibile.</p>
+   {% endfor %}   
+    </div>
+  </div>
+</section>
 
 
 </div>

@@ -9,4 +9,5 @@ urlpatterns = [
     path('financial-support/' ,support_developer  , name='support_developer'),
     path('captcha/', include('captcha.urls')),
     path('blog/' ,BlogPosts , name='blog'),
+    path('post/<int:post_id>/', blog_detail, name='blog_detail')
 ]
