@@ -12,3 +12,5 @@ cloudinary==1.44.0
 six==1.17.0 
 urllib3==2.4.0
 python-dotenv==1.1.0
+Markdown==3.8 
+django-markdownx==4.0.9
