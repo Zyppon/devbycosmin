@@ -100,6 +100,8 @@ animation: rotate 3s linear infinite;}
 
 .captcha-img {width: 200px;  height: auto;margin-bottom: 20px;  /* Optional: Adds space below the CAPTCHA image */
 }
+
+
 </style>
 {% endblock %}
 
@@ -111,7 +113,7 @@ animation: rotate 3s linear infinite;}
     <div class='top-heading'>
       <h1>Wanna Talk ?</h1>
     </div>
-
+    
     <form class="contact-form" action="{% url 'contact' %}" method="post">
         {% csrf_token %}
       <div class='block'>
@@ -137,10 +139,19 @@ animation: rotate 3s linear infinite;}
     {{ form.captcha }}
   </div>
 </div>
+{% if messages %}
+  <div class="container mt-4">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
 
       <div class='button-container'>
         <button class='send' type="submit">send</button>
-        <button type="reset">clear</button>
       </div>
       <p class="fs-2">Do you want to support me?feel free to <a style="color: #5fc9f3;" href="{%url 'support_developer'%}">buy me a coffee</a>😀☕</p>
     </form>

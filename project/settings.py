@@ -1,6 +1,9 @@
 import os
 from pathlib import Path
+import cloudinary
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dm+h=(i6rrtg-__ab22rwr7xujatn%)w()+w3%jd%(g4o19&+t'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'captcha',
+    'cloudinary',
 ]
 CAPTCHA_IMAGE_SIZE = (200, 50)  # Width, Height in pixels
 CAPTCHA_FONT_SIZE = 40 
@@ -42,6 +46,15 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'app/static',]
+
+cloudinary.config(
+    cloud_name=os.environ.get('cloud_name'),
+    api_key=os.environ.get('api_key'),
+    api_secret=os.environ.get('api_secret'),
+    secure=True,
+)
+
+CSRF_COOKIE_SECURE = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,6 +95,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'railway',
+        #'USER': 'postgres',
+        #'PASSWORD': 'tHrpoBCAESgJgzVUVIhDEVwfoyTKAXQq',
+        #'HOST': 'autorack.proxy.rlwy.net',
+        #'PORT': '5432',
+       # 'PORT':'36983',
+    #}
+#}
 
 
 # Password validation
