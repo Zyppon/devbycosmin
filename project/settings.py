@@ -17,8 +17,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['devbycosmin.com', '.devbycosmin.com']
+ALLOWED_HOSTS = ['*']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://devbox.blog',  
+]
 
 # Application definition
 
@@ -34,6 +40,8 @@ INSTALLED_APPS = [
     'cloudinary',
     'markdownx',
 ]
+
+
 CAPTCHA_IMAGE_SIZE = (200, 50)  # Width, Height in pixels
 CAPTCHA_FONT_SIZE = 40 
 #Backend Mail 
