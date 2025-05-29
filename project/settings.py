@@ -24,7 +24,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'devbycosmin.com'
+    'devbycosmin.com',
     'http://devbycosmin.com',
     'https://devbycosmin.com', 
     'https://blog.devbycosmin.com' 
