@@ -2,13 +2,9 @@ import os
 from pathlib import Path
 import cloudinary
 from dotenv import load_dotenv
-print(cloudinary.config().api_key)
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-print("🔑 Cloudinary API Key:", os.environ.get("api_key"))
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
