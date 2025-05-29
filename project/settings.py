@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dm+h=(i6rrtg-__ab22rwr7xujatn%)w()+w3%jd%(g4o19&+t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -24,6 +24,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 CSRF_TRUSTED_ORIGINS = [
+    'devbycosmin.com'
     'http://devbycosmin.com',
     'https://devbycosmin.com', 
     'https://blog.devbycosmin.com' 
